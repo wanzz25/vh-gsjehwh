@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard — Wanzz Payment</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="grid-bg"></div>
+<div class="glow-orb one"></div>
+<div class="glow-orb two"></div>
+
+<div class="dash-shell">
+  <aside class="sidebar">
+    <div class="logo" style="margin-bottom:24px;">
+      <img src="assets/logo.png" class="logo-mark" alt="Wanzz Payment">
+      Wanzz Payment
+    </div>
+    <a class="side-link active" id="sideRingkasan">📊 Ringkasan</a>
+    <a class="side-link" id="sideQris">▦ QRIS</a>
+    <a class="side-link" id="sideRekening">👛 E-Wallet</a>
+    <a class="side-link" data-toast="Fitur pengaturan segera hadir.">⚙️ Pengaturan</a>
+    <a class="side-link" href="index.html" style="margin-top:auto;">← Kembali ke Beranda</a>
+  </aside>
+
+  <main class="dash-main">
+    <div class="dash-top" id="topAnchor">
+      <div>
+        <h1>Ringkasan Pembayaran</h1>
+        <p>Pantau QRIS dan e-wallet aktif untuk menerima pembayaran.</p>
+      </div>
+      <button class="btn btn-primary" data-zoom-open data-zoom-src="assets/qris-real.jpg" data-zoom-alt="QRIS Wanzz Payment">🔍 Lihat QRIS</button>
+    </div>
+
+    <!-- hero status card (gaya lama, tanpa angka uang) -->
+    <div class="balance-card">
+      <span>Status Pembayaran</span>
+      <h2 class="mono">QRIS &amp; E-Wallet Aktif</h2>
+      <div class="balance-actions">
+        <button data-zoom-open data-zoom-src="assets/qris-real.jpg" data-zoom-alt="QRIS Wanzz Payment">+ Lihat QRIS</button>
+        <button id="heroRekeningBtn">+ Lihat E-Wallet</button>
+        <a href="assets/qris-real.jpg" download="Wanzz-Payment-QRIS.jpg" style="text-decoration:none;">+ Download QRIS</a>
+      </div>
+    </div>
+
+    <!-- ringkasan cepat (gaya lama, tanpa angka uang) -->
+    <div class="grid-3">
+      <div class="mini-card">
+        <div class="top-row"><div class="ic">▦</div><span class="mono">QRIS</span></div>
+        <h3 style="font-size:1.2rem;">Aktif</h3>
+        <span>Satu kode untuk semua e-wallet</span>
+      </div>
+      <div class="mini-card">
+        <div class="top-row"><div class="ic">👛</div><span class="mono">E-Wallet</span></div>
+        <h3 style="font-size:1.2rem;">2 Metode</h3>
+        <span>DANA &amp; GoPay tersedia</span>
+      </div>
+      <div class="mini-card">
+        <div class="top-row"><div class="ic">🕐</div><span class="mono">Layanan</span></div>
+        <h3 style="font-size:1.2rem;">24/7</h3>
+        <span>Bisa dipakai kapan saja</span>
+      </div>
+    </div>
+
+    <!-- QRIS -->
+    <div class="table-card qris-panel" id="qrisPanelAnchor">
+      <div class="table-head">
+        <h3>QRIS</h3>
+        <span class="badge success">Aktif</span>
+      </div>
+      <div class="qris-panel-body">
+        <div class="qr-card small qr-zoomable" data-zoom-src="assets/qris-real.jpg" data-zoom-alt="QRIS Wanzz Payment">
+          <img src="assets/qris-real.jpg" alt="QRIS Wanzz Payment" class="qr-real-img">
+          <div class="scan-line"></div>
+        </div>
+        <div class="qris-panel-info">
+          <p>Tunjukkan atau bagikan kode QRIS ini ke pembeli. Satu kode berlaku untuk semua e-wallet dan m-banking. Bisa diperbesar dan diunduh.</p>
+          <div class="qris-actions" style="justify-content:flex-start; margin-top:0;">
+            <button class="btn btn-primary" data-zoom-open data-zoom-src="assets/qris-real.jpg" data-zoom-alt="QRIS Wanzz Payment">🔍 Perbesar QRIS</button>
+            <a class="btn btn-ghost" href="assets/qris-real.jpg" download="Wanzz-Payment-QRIS.jpg">⬇ Download QRIS</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- E-WALLET -->
+    <div class="table-card rekening-panel" id="rekeningPanelAnchor">
+      <div class="table-head">
+        <h3>E-Wallet</h3>
+      </div>
+      <div class="rekening-grid dash-rek-grid">
+        <div class="mini-card rek-card">
+          <div class="top-row"><div class="ic">👛</div><span class="mono">DANA</span></div>
+          <p class="rek-name">a.n. Wanzz Payment</p>
+          <button class="rek-view-btn" data-enlarge-number="081460365472" data-enlarge-label="DANA · a.n. Wanzz Payment">
+            <span>🔒 Lihat Nomor</span>
+          </button>
+        </div>
+        <div class="mini-card rek-card">
+          <div class="top-row"><div class="ic">👛</div><span class="mono">GoPay</span></div>
+          <p class="rek-name">a.n. Wanzz Payment</p>
+          <button class="rek-view-btn" data-enlarge-number="081460365472" data-enlarge-label="GoPay · a.n. Wanzz Payment">
+            <span>🔒 Lihat Nomor</span>
+          </button>
+        </div>
+      </div>
+      <p class="rek-note">* Nomor di atas nomor sementara — ganti dengan nomor e-wallet asli di file <code class="mono">dashboard.html</code> &amp; <code class="mono">index.html</code>.</p>
+    </div>
+  </main>
+</div>
+
+<!-- generic zoom lightbox -->
+<div class="zoom-lightbox" id="zoomLightbox">
+  <button class="zoom-close" id="zoomClose">✕</button>
+  <img src="" alt="" id="zoomImage" class="zoom-image">
+  <a href="" download id="zoomDownload" class="btn btn-primary zoom-download">⬇ Download</a>
+</div>
+
+<!-- enlarge number modal -->
+<div class="number-modal" id="numberModal">
+  <div class="number-modal-card">
+    <button class="number-modal-close" id="numberModalClose">✕</button>
+    <span class="number-modal-label" id="numberModalLabel"></span>
+    <div class="number-modal-value mono" id="numberModalValue"></div>
+    <button class="btn btn-primary" id="numberModalCopy" style="width:100%;justify-content:center;">Salin Nomor</button>
+  </div>
+</div>
+
+<script>window.WANZZ_GREETING_ENABLED = true;</script>
+<script src="script.js"></script>
+<script src="audio.js"></script>
+<script>
+  document.getElementById('sideRingkasan').addEventListener('click', () => {
+    document.getElementById('topAnchor').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('sideQris').addEventListener('click', () => {
+    document.getElementById('qrisPanelAnchor').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('sideRekening').addEventListener('click', () => {
+    document.getElementById('rekeningPanelAnchor').scrollIntoView({ behavior: 'smooth' });
+  });
+  document.getElementById('heroRekeningBtn').addEventListener('click', () => {
+    document.getElementById('rekeningPanelAnchor').scrollIntoView({ behavior: 'smooth' });
+  });
+</script>
+</body>
+</html>
